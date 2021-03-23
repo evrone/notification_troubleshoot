@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.39.0">
+  <meta name="description" content="notification_troubleshoot API docs, for the Dart programming language.">
+  <title>notification_troubleshoot - Dart API docs</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/evrone/notification_troubleshoot/">notification_troubleshoot package</a></li>
+  </ol>
+  <div class="self-name">notification_troubleshoot</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="https://github.com/evrone/notification_troubleshoot/">notification_troubleshoot package</a></li>
+    </ol>
+    
+    <h5 class="hidden-xs"><span class="package-name">notification_troubleshoot</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="notification_troubleshoot/notification_troubleshoot-library.html">notification_troubleshoot</a></li>
+    </ol>
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <section class="desc markdown">
+        <h1 id="notification_troubleshoot">notification_troubleshoot</h1>
+<p>Troubleshoot android notification. Launch vendor-specific Activity for fix autostart, power-saving and notification settings
+Used <a href="https://github.com/thelittlefireman/AppKillerManager">https://github.com/thelittlefireman/AppKillerManager</a></p>
+<p>##Troubleshoot platforms:
+<code>x</code> Andoid</p>
+<p>If you need any functionality on another platform, create a issue</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>You can get a map of action:</p>
+<pre class="language-dart"><code class="language-dart">final Map&lt;NotificationTroubleshootActions, bool&gt; availableActions = await NotificationTroubleshoot.availableActions;
+</code></pre>
+<p>Show all available actions in your application and let the user run that action:</p>
+<pre class="language-dart"><code class="language-dart">NotificationTroubleshoot.startIntent(availableActions);
+</code></pre>
+      </section>
+      
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="notification_troubleshoot">
+            <span class="name"><a href="notification_troubleshoot/notification_troubleshoot-library.html">notification_troubleshoot</a></span>           
+          </dt>
+          <dd>
+             
+          </dd>
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    notification_troubleshoot
+      0.0.1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
