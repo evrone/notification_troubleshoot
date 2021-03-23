@@ -15,9 +15,9 @@ Launch vendor-specific Activity for fix autostart, power-saving and notification
 For android used https://github.com/thelittlefireman/AppKillerManager
 
 ## Troubleshoot platforms:
-[x] Andoid
+  * Android
 
-If you need any functionality on another platform, create a issue
+If you need any functionality on another platform, create an issue
 
 
 ## Getting Started
