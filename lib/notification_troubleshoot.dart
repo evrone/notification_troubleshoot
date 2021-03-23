@@ -11,6 +11,9 @@ class NotificationTroubleshoot {
   static const MethodChannel _channel =
       const MethodChannel('notification_troubleshoot');
 
+  /// Available actions on device. If the device has actions available,
+  /// user can run [startIntent] for each one to check the settings
+  /// on these screens and correct them if necessary
   static Future<Map<NotificationTroubleshootActions, bool>> get availableActions async {
     if (kIsWeb || !Platform.isAndroid) {
       return {};
@@ -18,6 +21,15 @@ class NotificationTroubleshoot {
     Map<String, bool>? version = await _channel.invokeMapMethod<String, bool>('availableActions');
     version ??= {};
     return version.map((key, value) => MapEntry<NotificationTroubleshootActions, bool>(_mapActionString(key), value));
+  }
+
+  /// Start intent
+  static Future<bool> startIntent(NotificationTroubleshootActions action) async {
+    if (kIsWeb || !Platform.isAndroid) {
+      return false;
+    }
+    final bool? res = await _channel.invokeMethod<bool>('startIntent', {'action': _mapAction(action)});
+    return res ?? false;
   }
 
   static NotificationTroubleshootActions _mapActionString(String name) {
@@ -41,13 +53,5 @@ class NotificationTroubleshoot {
       case NotificationTroubleshootActions.actionPowersaving:
         return 'action_powersaving';
     }
-  }
-
-  static Future<bool> startIntent(NotificationTroubleshootActions action) async {
-    if (kIsWeb || !Platform.isAndroid) {
-      return false;
-    }
-    final bool? res = await _channel.invokeMethod<bool>('startIntent', {'action': _mapAction(action)});
-    return res ?? false;
   }
 }

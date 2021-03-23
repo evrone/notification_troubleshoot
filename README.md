@@ -1,15 +1,22 @@
 # notification_troubleshoot
 
-A new flutter plugin project.
+Troubleshoot android notification. Launch vendor-specific Activity for fix autostart, power-saving and notification settings
+Used https://github.com/thelittlefireman/AppKillerManager
+
+##Troubleshoot platforms:
+[x] Andoid
+
+If you need any functionality on another platform, create a issue
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+You can get a map of action:
+```dart
+final Map<NotificationTroubleshootActions, bool> availableActions = await NotificationTroubleshoot.availableActions;
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+Show all available actions in your application and let the user run that action:
+```dart
+NotificationTroubleshoot.startIntent(availableActions);
+```
