@@ -19,11 +19,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    initActions();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
+  Future<void> initActions() async {
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       availableActions = await NotificationTroubleshoot.availableActions;
