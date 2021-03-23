@@ -11,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -34,9 +32,6 @@ flutter:
         pluginClass: NotificationTroubleshootPlugin
       ios:
         pluginClass: NotificationTroubleshootPlugin
-      web:
-        pluginClass: NotificationTroubleshootWeb
-        fileName: notification_troubleshoot_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
