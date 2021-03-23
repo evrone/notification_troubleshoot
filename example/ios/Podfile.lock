@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - notification_troubleshoot (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - notification_troubleshoot (from `.symlinks/plugins/notification_troubleshoot/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  notification_troubleshoot:
+    :path: ".symlinks/plugins/notification_troubleshoot/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  notification_troubleshoot: f18e5f7484f9912c620fe8d3ee8971ecf309b309
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
