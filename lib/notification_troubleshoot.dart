@@ -1,15 +1,13 @@
-
 import 'dart:async';
 import 'dart:io' show Platform;
 
-import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/services.dart';
 
 enum NotificationTroubleshootActions { actionAutostart, actionNotifications, actionPowersaving }
 
 class NotificationTroubleshoot {
-  static const MethodChannel _channel =
-      const MethodChannel('notification_troubleshoot');
+  static const MethodChannel _channel = const MethodChannel('notification_troubleshoot');
 
   /// Available actions on device. If the device has actions available,
   /// user can run [startIntent] for each one to check the settings
