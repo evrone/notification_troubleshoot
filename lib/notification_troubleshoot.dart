@@ -14,13 +14,12 @@ class NotificationTroubleshoot {
   /// Available actions on device. If the device has actions available,
   /// user can run [startIntent] for each one to check the settings
   /// on these screens and correct them if necessary
-  static Future<Map<NotificationTroubleshootActions, bool>> get availableActions async {
+  static Future<List<NotificationTroubleshootActions>> get availableActions async {
     if (kIsWeb || !Platform.isAndroid) {
-      return {};
+      return const <NotificationTroubleshootActions>[];
     }
-    Map<String, bool>? version = await _channel.invokeMapMethod<String, bool>('availableActions');
-    version ??= {};
-    return version.map((key, value) => MapEntry<NotificationTroubleshootActions, bool>(_mapActionString(key), value));
+    List<String>? version = await _channel.invokeListMethod<String>('availableActions');
+    return version?.map((value) => _mapActionString(value)).toList() ?? const <NotificationTroubleshootActions>[];
   }
 
   /// Start intent

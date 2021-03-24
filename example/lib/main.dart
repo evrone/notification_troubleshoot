@@ -13,31 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<NotificationTroubleshootActions, bool>? availableActions;
-
-  @override
-  void initState() {
-    super.initState();
-    initActions();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initActions() async {
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      availableActions = await NotificationTroubleshoot.availableActions;
-      print(availableActions);
-    } catch (e) {
-      print(e);
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,27 +22,32 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              availableActions?.entries.isNotEmpty == true ? Text('Available actions: \n') : Text('No action available'),
+          child: FutureBuilder<List<NotificationTroubleshootActions>>(
+            future: NotificationTroubleshoot.availableActions,
+            builder: (context, state) {
+              var data = state.data;
+              if (data == null) {
+                return CircularProgressIndicator();
+              }
+              if (data.isEmpty){
+                return Text('No action available');
+              }
+              return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('Available actions: \n'),
 
-              for (final action in availableActions?.entries ?? <MapEntry<NotificationTroubleshootActions, bool>>[])
-                ListTile(
-                  title: Text('${action.key.toString().split('.')[1]}'),
-                  subtitle: Text(
-                    action.value ? 'available' : 'unavailable',
-                    style: TextStyle(
-                      color: action.value ? Colors.lightGreen : Colors.deepOrangeAccent,
+                for (final action in data)
+                  ListTile(
+                    title: Text('${action.toString().split('.')[1]}'),
+                    onTap: () => NotificationTroubleshoot.startIntent(action),
+                    trailing: Icon(
+                      Icons.arrow_forward,
                     ),
-                  ),
-                  onTap: action.value ? () => NotificationTroubleshoot.startIntent(action.key) : null,
-                  trailing: Icon(
-                    Icons.arrow_forward,
-                    color: action.value ? null : Colors.black12,
-                  ),
-                )
-            ],
+                  )
+              ],
+            );
+            },
           ),
         ),
       ),

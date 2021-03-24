@@ -10,8 +10,8 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     private static final String TAG = "MethodCallHandlerImpl";
@@ -84,9 +84,11 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
             }
 
         } else if (call.method.equals("availableActions")) {
-            Map<String, Boolean> res = new HashMap<>();
+            List<String> res = new ArrayList<>();
             for (KillerManager.Actions action : KillerManager.Actions.values()) {
-                res.put(action.toString().toLowerCase(), KillerManager.isActionAvailable(applicationContext, action));
+                if (KillerManager.isActionAvailable(applicationContext, action)) {
+                    res.add(action.toString().toLowerCase());
+                }
             }
             result.success(res);
         } else {
