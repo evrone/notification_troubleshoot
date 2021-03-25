@@ -1,6 +1,6 @@
 name: notification_troubleshoot
 description: Troubleshoot android notification. Launch vendor-specific Activity for fix autostart, power-saving and notification settings
-version: 0.0.2+1
+version: 0.0.2+2
 homepage: https://github.com/evrone/notification_troubleshoot/
 
 environment:
