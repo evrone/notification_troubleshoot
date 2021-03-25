@@ -10,7 +10,7 @@
 </a>
 
 ### Developed for [Evrone.com](https://evrone.com/flutter?utm_source=github&utm_campaign=notification_troubleshoot)
-Launch vendor-specific Activity for fix autostart, power-saving and notification settings. [More...]((#target-of-plugin))
+Launch vendor-specific Activity for fix autostart, power-saving and notification settings. [More...](#target-of-plugin)
 
 For android used https://github.com/thelittlefireman/AppKillerManager library
 
